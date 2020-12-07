@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 """
+
+
+                !!!ç!!!!!!!! pas fini !!!!!!!!!!!!
 2e ETAPE: Recupérer quelques comentaires d'hotel pour chaque utilisateur
 
 
@@ -43,6 +46,7 @@ def create_csv_url_review(filename,username_list,url_reviews_to_scrap):
 if __name__ == "__main__":
     
     df_user = pd.read_csv('users_profile_url.csv')
+    df_user=df_user[402::]
     driver = webdriver.Firefox()
     rate_list, review_list, title_list, url_hotel_list,  user_list = [], [], [], [], []
     url_prefix = "https://www.tripadvisor.fr"
@@ -68,13 +72,17 @@ if __name__ == "__main__":
                         username_list.append(username)
             except AttributeError:
                 print("Trop de données à charger, tant pis pour cet user !")
-        create_csv_url_review("reviews_url.csv",username_list,url_reviews_to_scrap)
+        create_csv_url_review("reviews_url2.csv",username_list,url_reviews_to_scrap)
         #scraping_reviews_by_reviews_list(url_reviews_to_scrap,username,user_list,rate_list,review_list,title_list)
     #create_csv_review("reviews.csv",user_list,rate_list,title_list,review_list)
+    except Exception as e:
+        pass
+        
     except:
         print("Interruption manuelle ou autre problème rencontré..")
         print("PROFILE USER en cours de traitement :  ", url_profile)
-        create_csv_url_review("reviews_url.csv",username_list,url_reviews_to_scrap)
+        
+        create_csv_url_review("reviews_url2.csv",username_list,url_reviews_to_scrap)
         
      #   print("Interruption manuelle ou autre problème rencontré..")
         #create_csv_review("reviews.csv",user_list,rate_list,title_list,review_list)

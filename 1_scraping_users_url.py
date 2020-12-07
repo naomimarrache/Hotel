@@ -6,6 +6,10 @@ import time
 import pandas as pd
 
 """
+
+
+                !!!!!!!!!!!FINI !!!!!!!!!!
+                
 1er ETAPE : Obtenir une base de user depuis une page de commentaire 
          d'un hotel quelconque
          
